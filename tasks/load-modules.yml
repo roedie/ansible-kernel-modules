@@ -12,7 +12,7 @@
   lineinfile:
     create: yes
     dest: "{{ kernel_modules_conf_dir }}/{{ kernel_load_file }}"
-    line: "{{ item.name }}"
+    line: "{{ item.name }} {{ item.params|default('') }}"
     state: present
     owner: root
     group: root
